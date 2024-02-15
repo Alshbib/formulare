@@ -161,7 +161,7 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
               {phoneError && <p style={{ color: 'red' }}>{phoneError}</p>}
             </div>
 
-            <div className="message block">
+            {/* <div className="message block">
               <label htmlFor="message">Message</label>
               <textarea
                 id="message"
@@ -173,7 +173,7 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
                 aria-label="Nachricht"
               ></textarea>
               {messageError && <p style={{ color: 'red' }}>{messageError}</p>}
-            </div>
+            </div> */}
 
             <div className="privacy-policy block" style={{ display: 'flex', alignItems: 'center' }}>
               <label htmlFor="privacyPolicy" style={{ visibility: 'hidden' }}>P</label>
