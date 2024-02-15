@@ -92,7 +92,7 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
     }
   };
 
-
+//////////////////////////////////////////////////////////
 
   return (
     <div {...storyblokEditable(blok)} >
@@ -197,7 +197,7 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
                   style={{ marginRight: '5px' }}
                 />
               </div>
-/////////////////////////////////////
+
 
               <label htmlFor="privacyPolicy">
                 Wenn Sie auf Send klicken, erklären Sie sich mit unserer
