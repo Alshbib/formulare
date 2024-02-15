@@ -9,7 +9,8 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
     phone: '',
     message: '',
   });
-
+//////////////////////////////////////////////////////////////
+7/////////////////////
   const [privacyPolicyChecked, setPrivacyPolicyChecked] = useState(false);
 
   const [nameError, setNameError] = useState('');
@@ -92,7 +93,6 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
     }
   };
 
-//////////////////////////////////////////////////////////
 
   return (
     <div {...storyblokEditable(blok)} >
