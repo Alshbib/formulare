@@ -1,0 +1,121 @@
+{
+  "components": [
+    {
+      "name": "datenschutz",
+      "display_name": null,
+      "created_at": "2024-02-06T15:15:42.956Z",
+      "updated_at": "2024-02-06T15:15:53.888Z",
+      "id": 5295949,
+      "schema": {
+        "text": {
+          "type": "richtext"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "datenschutz",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "form",
+      "display_name": null,
+      "created_at": "2024-01-18T14:54:29.182Z",
+      "updated_at": "2024-01-25T15:05:29.620Z",
+      "id": 5193627,
+      "schema": {
+        "name": {
+          "type": "text"
+        },
+        "email": {
+          "type": "text"
+        },
+        "phone": {
+          "type": "text"
+        },
+        "message": {
+          "type": "text"
+        },
+        "link": {
+          "type": "multilink"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "form",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "formData",
+      "display_name": "FormData",
+      "created_at": "2024-01-25T12:27:27.769Z",
+      "updated_at": "2024-01-25T12:27:27.769Z",
+      "id": 5230230,
+      "schema": {
+        "name": {
+          "type": "text",
+          "pos": 0
+        },
+        "email": {
+          "type": "text",
+          "pos": 1
+        },
+        "phone": {
+          "type": "text",
+          "pos": 2
+        },
+        "message": {
+          "type": "text",
+          "pos": 3
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "FormData",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "page",
+      "display_name": null,
+      "created_at": "2024-01-18T17:07:11.829Z",
+      "updated_at": "2024-01-24T15:53:38.741Z",
+      "id": 5194675,
+      "schema": {
+        "body": {
+          "type": "bloks"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "page",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    }
+  ]
+}
