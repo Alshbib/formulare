@@ -20,10 +20,3 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-strategy:
-  matrix:
-    jdk10:
-      jdkVersion: "1.10"
-    jdk11:
-      jdkVersion: "1.11"
-  maxParallel: 2
