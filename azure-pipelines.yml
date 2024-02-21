@@ -7,12 +7,12 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '14.x'
   displayName: 'Install Node.js'
 
 - script: |
@@ -20,3 +20,8 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: 'out'
+    artifactName: 'nextjs-app'
+  displayName: 'Publish Artifacts'
