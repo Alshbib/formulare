@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google';
-import "../app/globals.css";
+
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import type { Metadata } from "next";
 import StoryblokProvider from 'compnents/storyblokProvider';

@@ -2,17 +2,17 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { FormStoryblok } from 'component-types-sb';
 import { storyblokEditable } from '@storyblok/react';
+import './form.css';
 export default function Form({ blok }: { blok: FormStoryblok }) {
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
-//////////////////////////////////////////////////////////////
-7/////////////////////
-  const [privacyPolicyChecked, setPrivacyPolicyChecked] = useState(false);
 
+  const [privacyPolicyChecked, setPrivacyPolicyChecked] = useState(false);
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [phoneError, setPhoneError] = useState('');
@@ -93,25 +93,34 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
     }
   };
 
-
   return (
     <div {...storyblokEditable(blok)} >
 
-      <div className="contact-form-container">
-        <div className="contact-us">
-          <div className="contact-header">
+      <div className={`contact-form-container ${blok.font} `} style={{ backgroundColor: blok.color?.color }}>
+        <div className={`contact-us ${blok.style} `} style={{ backgroundColor: blok.backgroundColor?.color }}>
+          <div className="contact-header" style={blok.textcolor}>
             <h1>
               &#9135;&#9135;&#9135;&#9135;&nbsp;&nbsp;CONTACT US
             </h1>
           </div>
-
+          
+          <style jsx>
+            {`
+          .contact-us:before {
+            background-color: ${blok.backgroundColor1?.color}  ;
+          }
+          .contact-us:after {
+            background-color: ${blok.backgroundColor2?.color};
+          }
+        `}
+          </style>
         </div>
-        <div className="header">
+        <div className="header" style={blok.textcolor}>
           <h1>Let's Get Started</h1>
           <h2>Contact us to start your next project!</h2>
         </div>
 
-        <div className="contact-form">
+        <div className="contact-form" style={blok.textcolor}>
           <form className="container" onSubmit={handleSubmit}>
 
             <div className="name block">
@@ -185,9 +194,9 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
                 onChange={handlePrivacyPolicyChange}
                 style={{ marginRight: '5px' }}
               />
-
+{/* 
               <div className="privacy-policy block" style={{ display: 'flex', alignItems: 'center' }}>
-                <label htmlFor="privacyPolicy" style={{ visibility: 'hidden' }}>Privacy</label>
+                <label htmlFor="privacyPolicy" style={{ visibility: 'hidden' }}> </label>
                 <input
                   type="checkbox"
                   id="privacyPolicy"
@@ -196,7 +205,7 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
                   onChange={handlePrivacyPolicyChange}
                   style={{ marginRight: '5px' }}
                 />
-              </div>
+              </div> */}
 
 
               <label htmlFor="privacyPolicy">
@@ -211,7 +220,7 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
             {privacyPolicyError && <p style={{ color: 'red' }}>{privacyPolicyError}</p>}
 
             <div className='button block'>
-              <button type="submit" aria-label="Submit">SEND</button>
+              <button type="submit" aria-label="Submit" style={{ backgroundColor: blok.buttonColor?.color }}>SEND</button>
             </div>
           </form>
         </div>
