@@ -20,10 +20,10 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: "JaCoCo"
-    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-    failIfCoverageEmpty: true
+strategy:
+  matrix:
+    jdk10:
+      jdkVersion: "1.10"
+    jdk11:
+      jdkVersion: "1.11"
+  maxParallel: 2
