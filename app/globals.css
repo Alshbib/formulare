@@ -63,7 +63,6 @@
 .social-bar ul {
   list-style-type: none;
 }
-
 .social-bar ul li {
   display: inline-block;
   color: white;
@@ -90,7 +89,7 @@
   font-weight: 300;
 }
 
-.address,
+/* .address,
 .email,
 .phone {
   text-align: left;
@@ -111,7 +110,7 @@
   color: #F8B7D8;
   font-size: 1.7rem;
   margin-bottom: 20px;
-}
+} */
 
 form {
   position: relative;
