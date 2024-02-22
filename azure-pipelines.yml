@@ -32,10 +32,10 @@ stages:
         displayName: 'Run Unit Tests'
 
       - task: PublishTestResults@2
-        condition: succeededOrFailed()  # Führen Sie den Testergebnisschritt unabhängig vom Erfolg oder Scheitern der vorherigen Schritte aus
+        condition: succeededOrFailed() 
         inputs:
-          testResultsFiles: '**/TEST-*.xml'  # Passe dies an das Format deiner Testergebnisse an, wenn es notwendig ist
-          testResultsFormat: 'JUnit'  # Passe dies an das von deinem Test-Framework generierte Format an
+          testResultsFiles: '**/TEST-*.xml'  
+          testResultsFormat: 'JUnit'  
         displayName: 'Publish Test Results'
 
       - task: PublishBuildArtifacts@1
@@ -44,7 +44,7 @@ stages:
           artifactName: 'nextjs-app'
         displayName: 'Publish Artifacts'
 
-# Der Deployment-Teil bleibt unverändert
+
 
 # trigger:
 # - master
