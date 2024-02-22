@@ -9,19 +9,52 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '14.x'
-  displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: Build
+    displayName: Build
+    
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '14.x'
+        displayName: 'Install Node.js'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: 'out'
-    artifactName: 'nextjs-app'
-  displayName: 'Publish Artifacts'
+      - script: |
+          npm install
+          npm run build
+        displayName: 'npm install and build'
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: 'out'
+          artifactName: 'nextjs-app'
+        displayName: 'Publish Artifacts'
+
+
+
+- stage: Deployment
+  displayName: Deployment
+  jobs:
+  - deployment: DUSNODEJSkontaktformulars
+    displayName: Deploy to DUS-NODEJS
+    environment: 
+      name: DUS-NODEJS
+      resourceType: virtualMachine
+      #resourceName: USHAN-PC # only deploy to the VM resource named USHAN-PC
+    strategy:
+      runOnce:
+        deploy:   
+            steps:
+              - task: DownloadBuildArtifacts@1
+                inputs:
+                  buildType: 'current'
+                  downloadType: 'single'
+                  artifactName: 'WebApp'
+                  downloadPath: '$(System.ArtifactsDirectory)'
+
+
+
