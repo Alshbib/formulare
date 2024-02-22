@@ -9,14 +9,13 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-
 stages:
 - stage: Build
   displayName: Build stage
   jobs:  
   - job: Build
     displayName: Build
-    
+    # Hier fügen Sie Schritte für den Build-Prozess hinzu
     steps:
       - task: NodeTool@0
         inputs:
@@ -33,15 +32,8 @@ stages:
           pathtoPublish: 'out'
           artifactName: 'nextjs-app'
         displayName: 'Publish Artifacts'
-        
-      
-      # - script: dotnet test "project" --logger trx 
-      # - task: PublishTestResults@2 
-      #   condition: succeededOrFailed() 
-      #   inputs: 
-      #     testRunner: VSTest 
-      #     testResultsFiles: '**/*.trx' 
 
+# Kommentare und nicht benötigte Teile entfernt, da sie für diese Pipeline nicht relevant sind
 
 - stage: Deployment
   displayName: Deployment
@@ -51,16 +43,15 @@ stages:
     environment: 
       name: DUS-NODEJS
       resourceType: virtualMachine
-      #resourceName: USHAN-PC # only deploy to the VM resource named USHAN-PC
     strategy:
       runOnce:
-        deploy:   
-            steps:
-              - task: DownloadBuildArtifacts@1
-                inputs:
-                  buildType: 'current'
-                  downloadType: 'single'
-                  artifactName: 'WebApp'
-                  downloadPath: '$(System.ArtifactsDirectory)'
+        deploy:
+          steps:
+            - task: DownloadBuildArtifacts@1
+              inputs:
+                buildType: 'current'
+                downloadType: 'single'
+                artifactName: 'nextjs-app'  # Das ist der Name des Artifacts, den Sie in der Build-Pipeline festgelegt haben
+                downloadPath: '$(System.ArtifactsDirectory)'
 
-
+            # Hier können Sie weitere Deployment-Schritte hinzufügen, z.B. den Start Ihrer Anwendung oder das Kopieren der Artefakte an den gewünschten Ort
