@@ -76,12 +76,12 @@ stages:
           pathtoPublish: 'out'
           artifactName: 'nextjs-app'
         displayName: 'Publish Artifacts'
-      - task: PublishTestResults@2
-        condition: succeededOrFailed() 
-        inputs:
-          testResultsFiles: '**/TEST-*.xml'  
-          testResultsFormat: 'JUnit'  
-        displayName: 'Publish Test Results'
+      # - task: PublishTestResults@2
+      #   condition: succeededOrFailed() 
+      #   inputs:
+      #     testResultsFiles: '**/TEST-*.xml'  
+      #     testResultsFormat: 'JUnit'  
+      #   displayName: 'Publish Test Results'
 
 - stage: Deployment
   displayName: Deployment
