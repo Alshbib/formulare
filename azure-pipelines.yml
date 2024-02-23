@@ -81,6 +81,13 @@ stages:
           testResultsFiles: '**/TEST-*.xml'  
           testResultsFormat: 'JUnit'  
         displayName: 'Publish Test Results'
+      - task: AzureWebApp@1
+        inputs:
+          azureSubscription: '<service-connection-name>'
+          appType: <app type>
+          appName: '<production-app-name>'
+          resourceGroupName: <group-name>
+          package: '$(Pipeline.Workspace)/**/*.zip'
 
       - task: PublishBuildArtifacts@1
         inputs:
