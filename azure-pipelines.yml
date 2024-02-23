@@ -1,7 +1,5 @@
 # Node.js with React
-- task: Bash@3
-  inputs:
-    arguments: 'Hallo world'
+
 # Build a Node.js project that uses React.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -85,7 +83,9 @@ stages:
           testResultsFormat: 'JUnit'  
         displayName: 'Publish Test Results'
   
-
+      - task: Bash@3
+        inputs:
+          arguments: 'Hallo world'
       - task: PublishBuildArtifacts@1
         inputs:
           pathtoPublish: 'out'
