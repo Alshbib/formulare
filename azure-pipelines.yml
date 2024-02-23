@@ -82,14 +82,6 @@ stages:
           testResultsFiles: '**/TEST-*.xml'  
           testResultsFormat: 'JUnit'  
         displayName: 'Publish Test Results'
-  
-      - task: Bash@3
-        inputs:
-          arguments: 'Hallo world'
-      - task: PublishBuildArtifacts@1
-        inputs:
-          pathtoPublish: 'out'
-          artifactName: 'nextjs-app'
 
 - stage: Deployment
   displayName: Deployment
