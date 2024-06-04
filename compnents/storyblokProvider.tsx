@@ -17,6 +17,6 @@ storyblokInit({
   }
 });
 
-export default function StoryblokProvider({ children }) {
+export default function StoryblokProvider({ children } : any) {
   return children;
 }

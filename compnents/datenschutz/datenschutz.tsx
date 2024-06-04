@@ -6,7 +6,7 @@ import { renderRichText, storyblokEditable } from '@storyblok/react';
 
 export default function Datenschutz({ blok }: { blok: DatenschutzStoryblok }) {
 
-  var text = renderRichText(blok.text);
+  const text = renderRichText(blok.text);
 
   return (
     <div {...storyblokEditable(blok)} style={styles.container}>

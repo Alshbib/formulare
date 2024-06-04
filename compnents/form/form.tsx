@@ -3,6 +3,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import { FormStoryblok } from 'component-types-sb';
 import { storyblokEditable } from '@storyblok/react';
 import './form.css';
+
 export default function Form({ blok }: { blok: FormStoryblok }) {
 
   const [formData, setFormData] = useState({
@@ -66,11 +67,11 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
         console.log('Formulardaten erfolgreich an deinen Server gesendet!');
 
         const storyData = await response.json();
-
+        
         console.log('DATEN:');
         console.log(storyData);
 
-        var storyblokResponse = await fetch('/save-form', {
+        const storyblokResponse = await fetch('/save-form', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -95,31 +96,28 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
 
   return (
     <div {...storyblokEditable(blok)} >
-
-      <div className={`contact-form-container ${blok.font} `} style={{ backgroundColor: blok.color?.color }}>
-        <div className={`contact-us ${blok.style} `} style={{ backgroundColor: blok.backgroundColor?.color }}>
+      <div className={`contact-form-container ${blok.font} `} style={{ backgroundColor: blok.FormColor?.color }}>
+        <div className={`contact-us ${blok.style} `} style={{ backgroundColor: blok.backgroundColor1?.color }}>
           <div className="contact-header" style={blok.textcolor}>
             <h1>
               &#9135;&#9135;&#9135;&#9135;&nbsp;&nbsp;CONTACT US
             </h1>
           </div>
-          
           <style jsx>
             {`
-          .contact-us:before {
-            background-color: ${blok.backgroundColor1?.color}  ;
-          }
-          .contact-us:after {
-            background-color: ${blok.backgroundColor2?.color};
-          }
-        `}
-          </style>
+              .contact-us:before {
+                background-color: ${blok.backgroundColor2?.color}  ;
+              }
+              .contact-us:after {
+                background-color: ${blok.backgroundColor3?.color};
+              }
+            `}
+          </style> 
         </div>
         <div className="header" style={blok.textcolor}>
           <h1>Let's Get Started</h1>
           <h2>Contact us to start your next project!</h2>
-        </div>
-
+       </div>
         <div className="contact-form" style={blok.textcolor}>
           <form className="container" onSubmit={handleSubmit}>
 
@@ -194,7 +192,8 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
                 onChange={handlePrivacyPolicyChange}
                 style={{ marginRight: '5px' }}
               />
-{/* 
+
+              {/* 
               <div className="privacy-policy block" style={{ display: 'flex', alignItems: 'center' }}>
                 <label htmlFor="privacyPolicy" style={{ visibility: 'hidden' }}> </label>
                 <input
@@ -206,7 +205,6 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
                   style={{ marginRight: '5px' }}
                 />
               </div> */}
-
 
               <label htmlFor="privacyPolicy">
                 Wenn Sie auf Send klicken, erklären Sie sich mit unserer
@@ -227,6 +225,4 @@ export default function Form({ blok }: { blok: FormStoryblok }) {
       </div>
     </div>
   );
-};
-
-
+}

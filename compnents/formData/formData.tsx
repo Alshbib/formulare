@@ -31,7 +31,7 @@ export default function FormData({ blok }: { blok: FormDataStoryblok }) {
         <div className="contact-form-container">
         <div className="contact-form">
       <form className="container">
-        <h2>Story Details</h2>
+        <h2>Kontaktanfragen</h2>
         <p>Name: {blok.name}</p>
         <p>Email: {blok.email}</p>
         <p>Phone: {blok.phone}</p>
